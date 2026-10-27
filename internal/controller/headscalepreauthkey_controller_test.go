@@ -815,10 +815,8 @@ var _ = Describe("HeadscalePreAuthKey Controller", func() {
 		It("should set Ready=False when preauth key has expired", func() {
 			By("Creating a HeadscalePreAuthKey")
 			preAuthKey := &headscalev1beta1.HeadscalePreAuthKey{
-				ObjectMeta: metav1.ObjectMeta{
-					Name:      resourceName + "-expired",
-					Namespace: namespace,
-				},
+				Name:      resourceName + "-expired",
+				Namespace: namespace,
 				Spec: headscalev1beta1.HeadscalePreAuthKeySpec{
 					HeadscaleRef:     headscaleName,
 					HeadscaleUserRef: headscaleUserName,
@@ -878,10 +876,8 @@ var _ = Describe("HeadscalePreAuthKey Controller", func() {
 		It("should requeue before expiration for active preauth key", func() {
 			By("Creating a HeadscalePreAuthKey")
 			preAuthKey := &headscalev1beta1.HeadscalePreAuthKey{
-				ObjectMeta: metav1.ObjectMeta{
-					Name:      resourceName + "-active",
-					Namespace: namespace,
-				},
+				Name:      resourceName + "-active",
+				Namespace: namespace,
 				Spec: headscalev1beta1.HeadscalePreAuthKeySpec{
 					HeadscaleRef:     headscaleName,
 					HeadscaleUserRef: headscaleUserName,
